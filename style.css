@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #070b14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Orqa fondagi harakatlanuvchi Canvas */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* O'rtadagi katta to'rtburchak (Kattalashtirilgan rasmga moslandi) */
+.main-card {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 900px;
+    min-height: 440px;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 26px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-card:hover {
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(56, 189, 248, 0.3);
+}
+
+/* Chap tomondagi rasm uchun joy (Kattalashtirilgan versiyasi) */
+.image-box {
+    flex: 1.2;
+    max-width: 420px;
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-box:hover img {
+    transform: scale(1.08);
+}
+
+/* O'ng tomondagi silka uchun joy */
+.link-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-link {
+    display: inline-block;
+    padding: 20px 42px;
+    font-size: 19px;
+    font-weight: 600;
+    color: #070b14;
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.custom-link:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.85);
+    background: linear-gradient(135deg, #818cf8 0%, #38bdf8 100%);
+}
+
+/* Telefon ekranlari uchun moslashuv */
+@media (max-width: 768px) {
+    .main-card {
+        flex-direction: column;
+        padding: 28px;
+        gap: 28px;
+    }
+    .image-box {
+        width: 100%;
+        max-width: 280px;
+        height: 230px;
+    }
+}
